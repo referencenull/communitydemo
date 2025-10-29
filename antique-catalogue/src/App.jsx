@@ -11,8 +11,9 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
 
   const handleAddAntique = (formData) => {
+    // Use a combination of timestamp and random number to reduce collision risk
     const newAntique = {
-      id: Date.now(),
+      id: Date.now() + Math.floor(Math.random() * 1000),
       ...formData
     }
     setAntiques([...antiques, newAntique])
